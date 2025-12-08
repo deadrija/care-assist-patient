@@ -1,0 +1,101 @@
+/* Wrap page so it's centered and not stretched */
+.dashboard-page {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ---------- GLOBAL LAYOUT ---------- */
+
+.dashboard-container {
+  padding: 22px;
+  padding-top: 28px;
+  max-width: 480px;
+  margin: 0 auto;
+  font-family: "Inter", sans-serif;
+}
+
+.page-padding-bottom {
+  padding-bottom: 90px;
+}
+
+/* ---------- HEADER ---------- */
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logout-btn {
+  background: #ff4d4f;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.dashboard-subtitle {
+  margin-top: -4px;
+  opacity: 0.75;
+}
+
+/* ---------- TODAY UF CARD (GREEN VERSION) ---------- */
+
+.today-uf-card {
+  background: linear-gradient(135deg, #e6ffee, #f7fff9);
+  padding: 26px;
+  border-radius: 18px;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 14px rgba(0, 120, 0, 0.12);
+  border: 1px solid #c9f4d1;
+}
+
+.uf-label {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1d4d1d;
+  opacity: 0.9;
+}
+
+.uf-value {
+  font-size: 44px;
+  font-weight: 800;
+  margin-top: 6px;
+  color: #16a34a;
+  text-shadow: 0px 2px 6px rgba(0, 255, 0, 0.25);
+}
+
+.uf-value.negative {
+  color: #d9534f;
+  text-shadow: 0px 2px 6px rgba(255, 0, 0, 0.25);
+}
+
+/* ---------- DAILY EXCHANGE ROWS ---------- */
+
+.exchange-row {
+  background: #ffffff;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.06);
+  font-size: 15px;
+}
+
+/* ---------- UF TREND CHART ---------- */
+
+.uf-chart-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}

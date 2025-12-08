@@ -1,0 +1,66 @@
+.profile-container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: system-ui, Arial, sans-serif;
+}
+
+.profile-title {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.profile-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.profile-card h3 {
+  margin: 0 0 10px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.profile-card p {
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+.action-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.profile-btn:hover {
+  background: #0066d6;
+}
+
+.logout-btn {
+  background: #ff4a4a;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #e03939;
+}

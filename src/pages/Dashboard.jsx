@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { supabase } from "../supabaseClient";
+import { useNavigate } from "react-router-dom";
 // import gsap from "gsap";
 
 import TodayUFCard from "../components/TodayUFCard";
@@ -8,9 +9,14 @@ import UFTrendChart from "../components/UFTrendChart";
 import MobileNav from "../components/MobileNav";
 import ChatAssistant from "../components/ChatAssistant";
 
+
+
+
 import "../styles/DashboardUI.css";
 
 export default function Dashboard() {
+
+    const navigate = useNavigate();
     const [profile, setProfile] = useState(null);
 
     const headerRef = useRef(null);
@@ -20,7 +26,7 @@ export default function Dashboard() {
 
     const handleLogout = async () => {
         await supabase.auth.signOut();
-        window.location.href = "/login";
+        navigate("/login");
     };
 
     useEffect(() => {

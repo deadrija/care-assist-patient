@@ -72,7 +72,7 @@ export default function Home() {
                             <span className="ex-time">12:10 PM</span>
                         </div>
                         <div className="ex-row">
-                            <span className="ex-strength">4.25%</span>
+                            <span className="ex-strength">7.5%</span>
                             <span className="ex-uf">UF: -120 mL</span>
                             <span className="ex-time">4:20 PM</span>
                         </div>

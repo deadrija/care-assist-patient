@@ -129,7 +129,7 @@ export default function PDExchange() {
                     <select value={baxterStrength} onChange={(e) => setBaxterStrength(e.target.value)}>
                         <option value="1.5%">1.5%</option>
                         <option value="2.5%">2.5%</option>
-                        <option value="4.25%">4.25%</option>
+                        <option value="7.5%">7.5%</option>
                     </select>
                 </div>
 

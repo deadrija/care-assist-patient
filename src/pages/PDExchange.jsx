@@ -20,10 +20,11 @@ export default function PDExchange() {
     const [previewURL, setPreviewURL] = useState(null);
 
     // Auto IST timestamp
-    const nowIST = new Date().toLocaleString("sv-SE", { timeZone: "Asia/Kolkata" });
-    const formattedIST = nowIST.slice(0, 16).replace(" ", "T");
+    const [timestamp, setTimestamp] = useState(() => {
+        const nowIST = new Date().toLocaleString("sv-SE", { timeZone: "Asia/Kolkata" });
+        return nowIST.slice(0, 16).replace(" ", "T"); // runs ONLY once
+    });
 
-    const [timestamp, setTimestamp] = useState(formattedIST);
 
 
     // Calculations
@@ -110,6 +111,7 @@ export default function PDExchange() {
                         value={timestamp}
                         onChange={(e) => setTimestamp(e.target.value)}
                     />
+
                 </div>
 
                 {/* WEIGHT */}

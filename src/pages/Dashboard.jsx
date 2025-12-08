@@ -6,6 +6,7 @@ import TodayUFCard from "../components/TodayUFCard";
 import DailyUFSummary from "../components/DailyUFSummary";
 import UFTrendChart from "../components/UFTrendChart";
 import MobileNav from "../components/MobileNav";
+import ChatAssistant from "../components/ChatAssistant";
 
 import "../styles/DashboardUI.css";
 
@@ -73,7 +74,7 @@ export default function Dashboard() {
                 </div>
 
             </div>
-
+            <ChatAssistant />
             <MobileNav />
         </div>
     );

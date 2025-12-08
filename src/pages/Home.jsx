@@ -46,7 +46,7 @@ export default function Home() {
                     {/* TODAY UF CARD */}
                     <div className="preview-uf-card">
                         <p className="uf-label">Today’s UF</p>
-                        <p className="uf-value">+420 mL</p>
+                        <p className="uf-value">-420 mL</p>
                     </div>
 
                     {/* GRAPH PREVIEW */}
@@ -63,17 +63,17 @@ export default function Home() {
                     <div className="preview-exchange">
                         <div className="ex-row">
                             <span className="ex-strength">1.5%</span>
-                            <span className="ex-uf">UF: +120 mL</span>
+                            <span className="ex-uf">UF: -120 mL</span>
                             <span className="ex-time">8:40 AM</span>
                         </div>
                         <div className="ex-row">
                             <span className="ex-strength">2.5%</span>
-                            <span className="ex-uf">UF: +180 mL</span>
+                            <span className="ex-uf">UF: -180 mL</span>
                             <span className="ex-time">12:10 PM</span>
                         </div>
                         <div className="ex-row">
                             <span className="ex-strength">4.25%</span>
-                            <span className="ex-uf">UF: +120 mL</span>
+                            <span className="ex-uf">UF: -120 mL</span>
                             <span className="ex-time">4:20 PM</span>
                         </div>
                     </div>

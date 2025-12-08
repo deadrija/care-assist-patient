@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Auth.css";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "../supabaseClient";
 
 export default function Signup() {
+    const navigate = useNavigate();
+
     const [form, setForm] = useState({
         username: "",
         email: "",
@@ -15,9 +19,53 @@ export default function Signup() {
     };
 
     const handleSignup = async () => {
-        console.log("Signup:", form);
-        // your signup logic here
+        try {
+            const { username, email, hospitalId, password } = form;
+
+            // 1️⃣ Validate required fields
+            if (!username || !email || !hospitalId || !password) {
+                alert("Please fill all fields.");
+                return;
+            }
+
+            // 2️⃣ Create user in Supabase Auth
+            const { data: signupData, error: signupError } = await supabase.auth.signUp({
+                email,
+                password,
+                options: {
+                    data: { username }
+                }
+            });
+
+            if (signupError) {
+                alert(signupError.message);
+                return;
+            }
+
+            const authUser = signupData.user;
+
+            // 3️⃣ Insert into patients table
+            const { error: patientError } = await supabase.from("patients").insert({
+                auth_id: authUser.id,
+                username,
+                email,
+                hospital_id: hospitalId
+            });
+
+            if (patientError) {
+                alert(patientError.message);
+                return;
+            }
+
+            alert("Account created! You can now log in.");
+            navigate("/login");
+
+        } catch (err) {
+            console.error(err);
+            alert("Unexpected error occurred.");
+        }
     };
+
 
     return (
         <div className="auth-wrapper">

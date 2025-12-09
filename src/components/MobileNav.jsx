@@ -7,8 +7,8 @@ export default function MobileNav() {
         <nav className="mobile-nav">
 
             <NavLink to="/dashboard" className="nav-btn">
-                <span className="nav-icon">🏠</span>
-                <span className="nav-label">Home</span>
+                <span className="nav-icon">📊</span>
+                <span className="nav-label">Dashboard</span>
             </NavLink>
 
             <NavLink to="/pd-exchange" className="nav-btn">

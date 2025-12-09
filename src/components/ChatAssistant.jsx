@@ -22,7 +22,7 @@ export default function ChatAssistant() {
 
     // ------------------------ UPDATED SAFE SYSTEM PROMPTS ------------------------
     const SYSTEM_PROMPTS = {
-        general: `You are CARE-ASSIST, a helpful informational assistant for dialysis patients. 
+        general: `You are CARE-ASSIST AI - MamAI, a helpful informational assistant for dialysis patients. 
 If PD_SESSION_DATA is included, summarize it based on standard guidelines. 
 IMPORTANT: You are an AI, not a doctor. Always remind the patient to contact their nephrologist for medical decisions.
 Use the supplied data to explain concepts like UF, drainage, and effluent clarity in simple, educational terms.`,

@@ -7,10 +7,63 @@ export default function Home() {
     const heroRef = useRef(null);
 
     useEffect(() => {
+        // ============= GSAP PAGE ENTER ANIMATIONS =============
         gsap.from(heroRef.current, { opacity: 0, y: 20, duration: 0.6 });
-        gsap.from(".mockup", { opacity: 0, y: 25, duration: 0.7, delay: 0.1 });
+        gsap.from(".phone-preview", { opacity: 0, y: 25, duration: 0.7, delay: 0.1 });
         gsap.from(".feature-card", { opacity: 0, y: 15, stagger: 0.1, delay: 0.3 });
         gsap.from(".why-list li", { opacity: 0, x: -10, stagger: 0.1, delay: 0.4 });
+
+        // ============= PARALLAX INTERACTION =============
+        const phone = document.querySelector(".phone-preview");
+        const screen = document.querySelector(".preview-screen");
+        const bars = document.querySelectorAll(".p-bar");
+        const rows = document.querySelectorAll(".ex-row");
+
+        if (!phone) return;
+
+        const handleParallax = (e) => {
+            if (window.innerWidth < 768) return; // Disable parallax for mobile
+
+            const rect = phone.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+            // Device tilt
+            phone.style.setProperty("--tiltX", `${y * 8}deg`);
+            phone.style.setProperty("--tiltY", `${x * 8}deg`);
+
+            // Screen parallax (inner layer)
+            screen.style.setProperty("--px", `${x * 14}px`);
+            screen.style.setProperty("--py", `${y * 14}px`);
+
+            // Graph bar depth movement
+            bars.forEach((bar, i) => {
+                bar.style.transform = `translateY(${y * (8 + i * 2.5)}px)`;
+            });
+
+            // Exchange rows depth movement
+            rows.forEach((row, i) => {
+                row.style.transform = `translateY(${y * (6 + i * 2)}px)`;
+            });
+        };
+
+        const handleLeave = () => {
+            phone.style.setProperty("--tiltX", "6deg");
+            phone.style.setProperty("--tiltY", "2deg");
+            screen.style.setProperty("--px", "0px");
+            screen.style.setProperty("--py", "0px");
+
+            bars.forEach((bar) => (bar.style.transform = ""));
+            rows.forEach((row) => (row.style.transform = ""));
+        };
+
+        phone.addEventListener("mousemove", handleParallax);
+        phone.addEventListener("mouseleave", handleLeave);
+
+        return () => {
+            phone.removeEventListener("mousemove", handleParallax);
+            phone.removeEventListener("mouseleave", handleLeave);
+        };
     }, []);
 
     return (
@@ -33,11 +86,11 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* REAL APP PREVIEW MOCKUP (INFORMATIONAL) */}
+            {/* PREMIUM PARALLAX PHONE MOCKUP */}
             <div className="phone-preview">
                 <div className="preview-screen">
 
-                    {/* HEADER */}
+                    {/* DASHBOARD HEADER */}
                     <div className="preview-header">
                         <h4>Dashboard</h4>
                         <span className="preview-tag">Today</span>
@@ -59,7 +112,7 @@ export default function Home() {
                         <div className="p-bar h40 delay6"></div>
                     </div>
 
-                    {/* EXCHANGE SAMPLE */}
+                    {/* EXCHANGE PREVIEW */}
                     <div className="preview-exchange">
                         <div className="ex-row">
                             <span className="ex-strength">1.5%</span>
@@ -81,9 +134,7 @@ export default function Home() {
                 </div>
             </div>
 
-
-
-            {/* FEATURES SECTION */}
+            {/* FEATURES */}
             <section className="features">
                 <h2 className="section-header">What You Can Do</h2>
 
@@ -114,7 +165,7 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* WHY IT MATTERS */}
+            {/* WHY SECTION */}
             <section className="why-section">
                 <h2 className="section-title">Why It Matters</h2>
 
